@@ -30,15 +30,17 @@ public class BodegaServiceImp implements BodegaService {
 
     @Override
     public Bodega saveBodega(Bodega bodega) {
-        if(!existsBodega(bodega.getId()))
-            return bodegaRepository.save(bodega);
-        return null;
+        return bodegaRepository.save(bodega);
     }
 
     @Override
-    public void deleteBodegaById(int idBodega) {
-        if(existsBodega(idBodega))
+    public boolean deleteBodegaById(int idBodega) {
+        boolean exists = existsBodega(idBodega);
+        if(exists){
             bodegaRepository.deleteById(idBodega);
+            return exists;
+        }
+        return exists;
     }
 
     @Override

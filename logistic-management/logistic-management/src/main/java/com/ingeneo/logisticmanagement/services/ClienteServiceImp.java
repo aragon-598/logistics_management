@@ -30,9 +30,13 @@ public class ClienteServiceImp implements ClienteService {
     }
 
     @Override
-    public void deleteClienteById(int idCliente) {
-        if (existsCliente(idCliente))
+    public boolean deleteClienteById(int idCliente) {
+        boolean exists = existsCliente(idCliente);
+        if (exists){
             clienteRepository.deleteById(idCliente);
+            return exists;
+        }
+        return exists;
     }
 
     @Override

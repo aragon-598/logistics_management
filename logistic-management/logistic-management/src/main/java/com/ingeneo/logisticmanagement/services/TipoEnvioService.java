@@ -11,7 +11,7 @@ public interface TipoEnvioService {
 
     TipoEnvio saveTipoEnvio(TipoEnvio TipoEnvio);
 
-    void deleteTipoEnvioById(int idTipoEnvio);
+    boolean deleteTipoEnvioById(int idTipoEnvio);
 
     boolean existsTipoEnvio(int idTipoEnvio);
 }

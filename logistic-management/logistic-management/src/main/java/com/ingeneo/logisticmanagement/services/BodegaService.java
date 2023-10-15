@@ -14,7 +14,7 @@ public interface BodegaService {
 
     Bodega saveBodega(Bodega bodega);
 
-    void deleteBodegaById(int idBodega);
+    boolean deleteBodegaById(int idBodega);
 
     boolean existsBodega(int idBodega);
 }

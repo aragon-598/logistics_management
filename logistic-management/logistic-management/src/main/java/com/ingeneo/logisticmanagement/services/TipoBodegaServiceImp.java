@@ -30,9 +30,13 @@ public class TipoBodegaServiceImp implements TipoBodegaService {
     }
 
     @Override
-    public void deleteTipoBodegaById(int idTipoBodega) {
-        if(existsTipoBodega(idTipoBodega))
+    public boolean deleteTipoBodegaById(int idTipoBodega) {
+        boolean exists = existsTipoBodega(idTipoBodega);
+        if(exists){
             tipoBodegaRepository.deleteById(idTipoBodega);
+            return exists;
+        }
+        return exists;
     }
 
     @Override

@@ -30,9 +30,13 @@ public class ProductoServiceImp implements ProductoService {
     }
 
     @Override
-    public void deleteProductoById(int idProducto) {
-        if(existsProducto(idProducto))
+    public boolean deleteProductoById(int idProducto) {
+        boolean exists = existsProducto(idProducto);
+        if(exists){
             productoRepository.deleteById(idProducto);
+            return exists;
+        }
+        return exists;
     }
 
     @Override

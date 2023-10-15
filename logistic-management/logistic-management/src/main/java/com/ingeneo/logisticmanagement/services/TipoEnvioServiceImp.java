@@ -30,9 +30,13 @@ public class TipoEnvioServiceImp implements TipoEnvioService{
     }
 
     @Override
-    public void deleteTipoEnvioById(int idTipoEnvio) {
-        if(existsTipoEnvio(idTipoEnvio))
+    public boolean deleteTipoEnvioById(int idTipoEnvio) {
+        boolean exists = existsTipoEnvio(idTipoEnvio);
+        if(exists){
             tipoEnvioRepository.deleteById(idTipoEnvio);
+            return exists;
+        }
+        return exists;
     }
 
     @Override

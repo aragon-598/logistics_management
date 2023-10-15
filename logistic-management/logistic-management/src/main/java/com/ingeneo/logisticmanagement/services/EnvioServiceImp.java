@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ingeneo.logisticmanagement.models.Cliente;
 import com.ingeneo.logisticmanagement.models.Envio;
 import com.ingeneo.logisticmanagement.models.TipoEnvio;
 import com.ingeneo.logisticmanagement.repository.EnvioRepository;
@@ -36,14 +37,23 @@ public class EnvioServiceImp implements EnvioService {
     }
 
     @Override
-    public void deleteEnvioById(int idEnvio) {
-        if (existsEnvio(idEnvio))
+    public boolean deleteEnvioById(int idEnvio) {
+        boolean exists = existsEnvio(idEnvio);
+        if (exists){
             envioRepository.deleteById(idEnvio);
+            return exists;
+        }
+        return exists;
     }
 
     @Override
     public boolean existsEnvio(int idEnvio) {
         return envioRepository.existsById(idEnvio);
+    }
+
+    @Override
+    public List<Envio> getEnviosByCliente(Cliente cliente) {
+        return envioRepository.findByCliente(cliente);
     }
     
 }

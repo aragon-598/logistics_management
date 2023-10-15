@@ -11,7 +11,7 @@ public interface ClienteService {
 
     Cliente saveCliente(Cliente Cliente);
 
-    void deleteClienteById(int idCliente);
+    boolean deleteClienteById(int idCliente);
 
     boolean existsCliente(int idCliente);
 }

@@ -2,6 +2,7 @@ package com.ingeneo.logisticmanagement.services;
 
 import java.util.List;
 
+import com.ingeneo.logisticmanagement.models.Cliente;
 import com.ingeneo.logisticmanagement.models.Envio;
 import com.ingeneo.logisticmanagement.models.TipoEnvio;
 
@@ -14,7 +15,9 @@ public interface EnvioService {
 
     Envio saveEnvio(Envio Envio);
 
-    void deleteEnvioById(int idEnvio);
+    boolean deleteEnvioById(int idEnvio);
 
     boolean existsEnvio(int idEnvio);
+
+    List<Envio> getEnviosByCliente(Cliente cliente);
 }

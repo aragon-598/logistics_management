@@ -11,7 +11,7 @@ public interface TipoBodegaService {
 
     TipoBodega saveTipoBodega(TipoBodega TipoBodega);
 
-    void deleteTipoBodegaById(int idTipoBodega);
+    boolean deleteTipoBodegaById(int idTipoBodega);
 
     boolean existsTipoBodega(int idTipoBodega);
 }

@@ -11,7 +11,7 @@ public interface ProductoService {
 
     Producto saveProducto(Producto Producto);
 
-    void deleteProductoById(int idProducto);
+    boolean deleteProductoById(int idProducto);
 
     boolean existsProducto(int idProducto);
 }
