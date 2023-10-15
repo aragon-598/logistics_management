@@ -20,4 +20,12 @@ public interface EnvioService {
     boolean existsEnvio(int idEnvio);
 
     List<Envio> getEnviosByCliente(Cliente cliente);
+
+    String generateNumeroGuia();
+
+    String generateIdTransporte();
+
+    Envio generateDiscount(Envio envio);
+
+    Envio updateEnvio(Envio Envio);
 }

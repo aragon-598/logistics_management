@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author Alejandro Aragon
@@ -33,6 +35,7 @@ public class TipoBodega implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
+    @JsonIgnore
     @OneToMany(mappedBy = "tipoBodega")
     private List<Bodega> bodegaList;
 

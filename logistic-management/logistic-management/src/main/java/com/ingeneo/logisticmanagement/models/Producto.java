@@ -12,10 +12,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -33,10 +34,10 @@ public class Producto implements Serializable {
     private Integer id;
     @Column(name = "nombre")
     private String nombre;
-    @Lob
     @Column(name = "descripcion")
     private String descripcion;
     @OneToMany(mappedBy = "producto")
+    @JsonIgnore
     private List<Envio> envioList;
 
     public Producto() {

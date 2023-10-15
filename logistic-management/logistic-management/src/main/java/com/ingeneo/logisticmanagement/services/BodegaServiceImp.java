@@ -3,11 +3,15 @@ package com.ingeneo.logisticmanagement.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ingeneo.logisticmanagement.models.Bodega;
 import com.ingeneo.logisticmanagement.models.TipoBodega;
 import com.ingeneo.logisticmanagement.repository.BodegaRepository;
 
+@Service
+@Transactional
 public class BodegaServiceImp implements BodegaService {
 
     @Autowired

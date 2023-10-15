@@ -3,10 +3,14 @@ package com.ingeneo.logisticmanagement.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ingeneo.logisticmanagement.models.Cliente;
 import com.ingeneo.logisticmanagement.repository.ClienteRepository;
 
+@Service
+@Transactional
 public class ClienteServiceImp implements ClienteService {
 
     @Autowired
@@ -24,9 +28,7 @@ public class ClienteServiceImp implements ClienteService {
 
     @Override
     public Cliente saveCliente(Cliente cliente) {
-        if (existsCliente(cliente.getId()))
             return clienteRepository.save(cliente);
-        return null;
     }
 
     @Override

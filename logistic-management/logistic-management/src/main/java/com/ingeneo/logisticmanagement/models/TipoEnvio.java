@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author Alejandro Aragon
@@ -34,6 +36,7 @@ public class TipoEnvio implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(mappedBy = "tipoEnvio")
+    @JsonIgnore
     private List<Envio> envioList;
 
     public TipoEnvio() {

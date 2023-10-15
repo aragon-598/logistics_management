@@ -14,4 +14,9 @@ public interface EnvioRepository extends JpaRepository<Envio,Integer>{
     List<Envio> findByTipoEnvio(TipoEnvio tipoEnvio);
     
     List<Envio> findByCliente(Cliente cliente);
+
+    boolean existsByNumeroGuia(String numeroGuia);
+    
+    boolean existsByIdTransporte(String idTransporte);
+
 }

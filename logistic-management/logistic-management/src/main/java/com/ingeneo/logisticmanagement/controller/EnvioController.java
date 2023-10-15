@@ -56,6 +56,7 @@ public class EnvioController {
     
     @PostMapping(value="/")
     public ResponseEntity<?> createEnvio(@RequestBody Envio entity) {
+        System.out.println(entity.getBodega().toString());
         Envio newEnvio = envioService.saveEnvio(entity);
         if (newEnvio!=null)
             return ResponseEntity.status(HttpStatus.OK).body(newEnvio);
@@ -65,7 +66,7 @@ public class EnvioController {
     @PutMapping(value="/edit/{idEnvio}")
     public ResponseEntity<?> editEnvio(@PathVariable int idEnvio, @RequestBody Envio entity) {
         entity.setId(idEnvio);
-        Envio updatedEnvio = envioService.saveEnvio(entity);
+        Envio updatedEnvio = envioService.updateEnvio(entity);
         if (updatedEnvio!=null)
             return ResponseEntity.status(HttpStatus.OK).body(updatedEnvio);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new StandarizedApiMessageResponse("No se pudo editar el"));

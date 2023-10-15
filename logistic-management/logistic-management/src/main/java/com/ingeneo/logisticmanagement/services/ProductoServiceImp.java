@@ -3,10 +3,14 @@ package com.ingeneo.logisticmanagement.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ingeneo.logisticmanagement.models.Producto;
 import com.ingeneo.logisticmanagement.repository.ProductoRepository;
 
+@Service
+@Transactional
 public class ProductoServiceImp implements ProductoService {
 
     @Autowired
@@ -24,9 +28,7 @@ public class ProductoServiceImp implements ProductoService {
 
     @Override
     public Producto saveProducto(Producto Producto) {
-        if(existsProducto(Producto.getId()))
-            return saveProducto(Producto);
-        return null;
+            return productoRepository.save(Producto);
     }
 
     @Override

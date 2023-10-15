@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author Alejandro Aragon
@@ -38,6 +40,7 @@ public class Bodega implements Serializable {
     private String ubicacion;
     @Column(name = "capacidad")
     private Integer capacidad;
+    @JsonIgnore
     @OneToMany(mappedBy = "bodega")
     private List<Envio> envioList;
     @JoinColumn(name = "tipo_bodega", referencedColumnName = "id")

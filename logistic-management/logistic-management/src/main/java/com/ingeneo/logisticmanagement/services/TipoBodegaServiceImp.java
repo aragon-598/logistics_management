@@ -3,10 +3,14 @@ package com.ingeneo.logisticmanagement.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ingeneo.logisticmanagement.models.TipoBodega;
 import com.ingeneo.logisticmanagement.repository.TipoBodegaRepository;
 
+@Service
+@Transactional
 public class TipoBodegaServiceImp implements TipoBodegaService {
 
     @Autowired
@@ -24,9 +28,7 @@ public class TipoBodegaServiceImp implements TipoBodegaService {
 
     @Override
     public TipoBodega saveTipoBodega(TipoBodega TipoBodega) {
-        if(existsTipoBodega(TipoBodega.getId()))
-            return tipoBodegaRepository.save(TipoBodega);
-        return null;
+        return tipoBodegaRepository.save(TipoBodega);
     }
 
     @Override

@@ -5,7 +5,6 @@
 package com.ingeneo.logisticmanagement.models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -45,9 +44,9 @@ public class Envio implements Serializable {
     private Date fechaEntrega;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precio_envio")
-    private BigDecimal precioEnvio;
+    private double precioEnvio;
     @Column(name = "descuento")
-    private BigDecimal descuento;
+    private double descuento;
     @JoinColumn(name = "cliente", referencedColumnName = "id")
     @ManyToOne
     private Cliente cliente;
@@ -60,6 +59,10 @@ public class Envio implements Serializable {
     @JoinColumn(name = "bodega", referencedColumnName = "id")
     @ManyToOne
     private Bodega bodega;
+    @Column(name = "numero_guia")
+    private String numeroGuia;
+    @Column(name = "id_transporte")
+    private String idTransporte;
 
     public Envio() {
     }
@@ -108,19 +111,19 @@ public class Envio implements Serializable {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public BigDecimal getPrecioEnvio() {
+    public double getPrecioEnvio() {
         return precioEnvio;
     }
 
-    public void setPrecioEnvio(BigDecimal precioEnvio) {
+    public void setPrecioEnvio(double precioEnvio) {
         this.precioEnvio = precioEnvio;
     }
 
-    public BigDecimal getDescuento() {
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(BigDecimal descuento) {
+    public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
 
@@ -156,6 +159,24 @@ public class Envio implements Serializable {
         this.bodega = bodega;
     }
 
+    public String getNumeroGuia() {
+        return numeroGuia;
+    }
+
+    public void setNumeroGuia(String numeroGuia) {
+        this.numeroGuia = numeroGuia;
+    }
+
+    public String getIdTransporte() {
+        return idTransporte;
+    }
+
+    public void setIdTransporte(String idTransporte) {
+        this.idTransporte = idTransporte;
+    }
+
+
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -165,7 +186,6 @@ public class Envio implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Envio)) {
             return false;
         }
