@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.ingeneo.logisticmanagement.models.TipoEnvio;
 
 @Repository
-public interface TipoEnvioRepository  extends JpaRepository<TipoEnvio,Long>{
+public interface TipoEnvioRepository  extends JpaRepository<TipoEnvio,Integer>{
     
 }
